@@ -10,13 +10,13 @@ def main():
     dt = 0
     screen = pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT))
     while True:
+        dt = clock.tick(60) / 1000
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         screen.fill("black")
+        player.update(dt)
         player.draw(screen)
-        dt = clock.tick(60) / 1000
-
         pygame.display.flip()
 
 if __name__ == "__main__":
